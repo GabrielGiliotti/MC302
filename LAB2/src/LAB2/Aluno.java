@@ -1,6 +1,6 @@
 /*Nome: Gabriel Volpato Giliotti 		ra:197569*/
 
-package LAB01;
+package LAB2;
 
 public class Aluno {
 	/*Atributos da classe*/
@@ -11,13 +11,13 @@ public class Aluno {
 	private int estado;
 	
 	/*Estado da Classe Aluno*/
+	/*Cada variavel indica um possivel estado do aluno*/
 	public static final int ESTADOATIVO = 1;
 	public static final int ESTADOINATIVO = 2;
 	public static final int ESTADOSUSPENSO = 3;
 	
 	/*construtor recebe	as informações default dos Alunos */
 	public Aluno (String nome, String cpf, int curso, int estado) {
-		this.matricula = CriadorDeMatricula.matriculador();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.curso = curso;
@@ -55,27 +55,24 @@ public class Aluno {
 	
 	
 	/*Setters da classe aluno*/
-	public void setMatricula( int matricula ) {
-		if( matricula > 0 ) {
-			this.matricula = matricula;
-		}else{
-			System.out.println("Matricula invalida.");
-		}
-	}
+	
 	public void setNome( String nome ) {
 		if( nome.length() >= 3 ) {
-			this.nome = nome;
+			this.nome = nome;	
 		}else{
 			System.out.println("Nome invalido.");
 		}
 	}
+	
 	public void setCpf( String cpf ) {
 		if( cpf.length() == 11 ) {
 			this.cpf = cpf;
+			this.matricula = CriadorDeMatricula.matriculador();/*Se o cpf do aluno for valido, entao incrementamos a matricula*/
 		}else{
 			System.out.println("Cpf invalido.");
 		}
 	}
+	
 	public void setCurso ( int curso) {
 		if( curso > 0 ) {
 			this.curso = curso;
@@ -83,4 +80,6 @@ public class Aluno {
 			System.out.println("Curso invalido.");
 		}
 	}
+	/*Em uma situação real, o que interessa é o numero do documento da pessoa cadastrada*/
+	/*Entao a matricula sera efetuada se o cpf for inserido corretamente*/
 }

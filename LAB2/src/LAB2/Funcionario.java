@@ -1,6 +1,6 @@
 /*Nome: Gabriel Volpato Giliotti 		ra:197569*/
 
-package LAB01;
+package LAB2;
 
 public class Funcionario {
 	private int matricula;
@@ -9,7 +9,6 @@ public class Funcionario {
 
 	/*construtor recebe	as informações default dos Funcionario*/
 	public Funcionario (String nome, String cpf) {
-		this.matricula = CriadorDeMatricula.matriculador();
 		this.nome = nome;
 		this.cpf = cpf;
 	}
@@ -33,13 +32,7 @@ public class Funcionario {
 	}
 	
 	/*Setters da classe Funcionario*/
-	public void setMatricula( int matricula ) {
-		if( matricula > 0 ) {
-			this.matricula = matricula;
-		}else{
-			System.out.println("Matricula invalida.");
-		}
-	}
+	
 	public void setNome( String nome ) {
 		if( nome.length() >= 3 ) {
 			this.nome = nome;
@@ -47,12 +40,16 @@ public class Funcionario {
 			System.out.println("Nome invalido.");
 		}
 	}
+	
 	public void setCpf( String cpf ) {
 		if( cpf.length() == 11 ) {
 			this.cpf = cpf;
+			this.matricula = CriadorDeMatricula.matriculador(); /*Se o cpf do funcionario for valido, entao incrementamos a matricula*/
 		}else{
 			System.out.println("Cpf invalido.");
 		}
 	}
+	/*Em uma situação real, o que interessa é o numero do documento da pessoa cadastrada*/
+	/*Entao a matricula sera efetuada se o cpf for inserido corretamente*/
 }
 
