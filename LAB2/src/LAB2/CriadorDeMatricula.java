@@ -1,6 +1,6 @@
 /*Nome: Gabriel Volpato Giliotti 		ra:197569*/
 
-package LAB2;
+package lab3;
 
 public class CriadorDeMatricula {
 	private static int m = 0;

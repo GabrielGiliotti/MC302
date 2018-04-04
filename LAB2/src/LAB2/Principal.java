@@ -1,6 +1,8 @@
 /*Nome: Gabriel Volpato Giliotti 		ra:197569*/
 
-package LAB2;
+package lab3;
+
+import lab3.Aluno;
 
 public class Principal {
 	public static void main(String[] args) {
