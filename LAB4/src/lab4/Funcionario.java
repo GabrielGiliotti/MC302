@@ -19,4 +19,12 @@ public class Funcionario extends Pessoa{
 		return salario;
 	}
 	
+	public void imprimeDados() {
+		String saida;
+		saida = "########## Funcionario\n";
+		saida = saida + "Nome: " + getNome() + "\nCpf: " + getCpf() + "\nSalario: " + getSalario();
+		System.out.println(saida);
+		System.out.println();
+	}
+	
 }

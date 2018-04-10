@@ -4,27 +4,20 @@ package lab4;
  
 import java.util.ArrayList;
 
-//Criada a classe MeuArray que extende de ArrayList de PESSOA ! (Enunciado)
+//Criada a classe MeuArray que extende ArrayList de PESSOA ! (Enunciado)
 public class MeuArray extends ArrayList <Pessoa> {
-	private Pessoa[] lista;
-	private int tam = lista.length; 
 	
-	//Metodo de ordenção InsertionSort
-	//Metodo para organizar o arrayList de Pessoa, modificar para receber strings (nomes)
-	public void organizaArray() {
-		int i;
-		int j;
-		Pessoa chave;
-		for( i = 1 ; i < tam ; i++ ) {
-			chave = this.lista[i];
-			j = i - 1;
-			while( j>=0 && tam > tam) { //alterar aqui !
-				this.lista[j+1] = lista[j];
-				j = j - 1;
+	public void ordenaArrayList() {
+		
+		int n = this.size();
+		for(int i = 1; i < n ; i++) {
+			Pessoa chave = this.get(i);
+			int j = i - 1;
+			while( j >= 0 && this.get(j).getNome().compareTo(chave.getNome()) > 0 ) {
+				this.set(j+1, this.get(j));
+				j--;
 			}
-			lista[j+1] = chave;
+			this.set(j+1, chave);
 		}
 	}
-
-	
 }
