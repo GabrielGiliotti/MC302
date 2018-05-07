@@ -121,5 +121,12 @@ public class Principal {
 				}	
 			}	
 		}
+		
+		//Criar um curso com limite de 6 creditos por semestre.
+		//Matricular um aluno nesse curso e tentar matricular esse aluno em disciplinas que somem mais que 6 creditos
+		//Criar uma disciplina com 25 vagas, e tentar matricular 26 alunos nessa disciplina
+		//Verificar se os 25 primeiros que solicitaram a matricula foram de fato matriculados
+		
+		
 	}
 }

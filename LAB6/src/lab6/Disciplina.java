@@ -12,7 +12,6 @@ public class Disciplina {
 	
 	//Alteração referente ao laboratorio 6:
 	private int creditos;
-	//Talvez criar uma classe interna para calcular o numero de horas ou creditos de uma disciplina ???
 	
 	public Disciplina(int id, String nome) {
 		this.id = id;
@@ -75,5 +74,15 @@ public class Disciplina {
 		
 		System.out.println(resp);
 	}
+
+	public int getCreditos() {
+		return creditos;
+	}
+
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
+	}
+	
+	
 	
 }
