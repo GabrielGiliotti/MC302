@@ -1,12 +1,13 @@
+/*Nome: Gabriel Volpato Giliotti RA:197569*/
+
 package lab6;
 
+//Classe nao utilizada no lab 6
 public class AlunoDoutorado extends AlunoPos {
-
 	public AlunoDoutorado( String nome, String cpf) {
 		super(nome,cpf);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de doutorado
 	}
-	
 	public void setInglesComprovado( boolean comprova ) {
 		isInglesComprovado = comprova;
 	}
@@ -14,11 +15,9 @@ public class AlunoDoutorado extends AlunoPos {
 	public void setExameQualificado( boolean qualificaEQM ) {
 		isExameQualificacaoAprovado = qualificaEQM;
 	}
-	
 	public void calculaAnoMaxIntegralizacao(){
 		int a = getAnoIngresso();
 		a = a + 5; //+5 pois o ano de entrada já eh um ano da integralização
 		anoPrazo = a;
 	}
-
 }

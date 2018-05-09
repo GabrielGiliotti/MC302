@@ -1,3 +1,5 @@
+/*Nome: Gabriel Volpato Giliotti RA:197569*/
+
 package lab6;
 
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class Disciplina {
 	
 	//Alteração referente ao laboratorio 6:
 	private int creditos;
-	
+	//Unicas alteracoes para o lab 6 foram criacao do atributo creditos e mudar o construtor para receber creditos; 
 	public Disciplina(int id, String nome, int creditos) {
 		this.id = id;
 		this.nome = nome;
@@ -23,7 +25,6 @@ public class Disciplina {
 	public String getNome() {
 		return this.nome;
 	}
-	
 	public void setNome(String nome) {
 		if (nome.length() >= Disciplina.NOME_MIN_LEN) {
 			this.nome = nome;
@@ -31,7 +32,6 @@ public class Disciplina {
 			System.out.println("O nome informado possui menos de " + Disciplina.NOME_MIN_LEN + " caracteres.");
 		}
 	}
-	
 	public boolean addAluno( Aluno aluno ) {
 		// TODO: Adicionar aluno à disciplina (e disciplina a lista de disciplinas do aluno)
 		if (listaAlunos.size() == MAX_ALUNOS) {
@@ -44,7 +44,6 @@ public class Disciplina {
 			return true;
 		}
 	}
-	
 	public boolean removeAluno( Aluno aluno ) {
 		// TODO: Remover aluno da disciplina (e disciplina da lista de disciplinas de aluno)
 		if(listaAlunos.size() == 0) {
@@ -62,7 +61,6 @@ public class Disciplina {
 	//Metodo utilizado para printar o nome da disciplina e o id
 	public void imprimeDados() {
 		String resp = this.nome + "(" + this.id + ")\n";
-		
 		for ( int i =0; i<this.listaAlunos.size(); i++ ) {
 			int matricula = this.listaAlunos.get(i).getMatricula();
 			if (i == 0) {
@@ -72,10 +70,8 @@ public class Disciplina {
 			}
 		}
 		resp += "]";
-		
 		System.out.println(resp);
 	}
-
 	public int getCreditos() {
 		return creditos;
 	}
@@ -83,7 +79,4 @@ public class Disciplina {
 	public void setCreditos(int creditos) {
 		this.creditos = creditos;
 	}
-	
-	
-	
 }

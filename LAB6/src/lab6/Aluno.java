@@ -1,3 +1,5 @@
+/*Gabriel Volpato Giliotti RA:197569*/
+
 package lab6;
 
 import mc302ef.GerenciadorAlunos;
@@ -14,7 +16,7 @@ public class Aluno {
 	
 	private int anoIngresso;
 	protected int anoPrazo;
-	private Curso curso;
+	private Curso curso = null;
 	
 	//Criar lista de disciplinas em que o aluno está matriculado.
 	private ArrayList <Disciplina> disciplinas;
@@ -42,7 +44,8 @@ public class Aluno {
 		
 		System.out.println();
 	}
-	
+	//Mudança referente ao lab6
+	//Metodo que contabiliza os creditos que o aluno esta matriculado
 	public int contabilizaCreditosJaMatriculados () {
 		int cred = 0;
 		int i;
@@ -51,8 +54,16 @@ public class Aluno {
 		}
 		return cred;
 	}
-	
-	
+	//metodo que atribui um curso a um aluno,
+	public void setCurso(Curso curso) {
+		if( this.curso == null ) {	
+			this.curso = curso; //Se o aluno não esta em nenhum curso, entao ele é matriculado no mesmo.
+			System.out.println("Matricula do aluno " + getNome() + " realizada no curso de " + this.curso.getNome() + " !");
+		}else{
+			//Caso ele ja tenha um curso, entao apenas printa a msg de matricula negada por existir matricula do mesmo em outro curso
+			System.out.println("Aluno " + getNome() + " já matriculado no curso " + this.curso.getNome() + " . Matricula em outro curso NEGADA !");
+		}
+	}
 	//Metodo que adiciona disciplina ao ArrayList disciplinas de um aluno estanciado
 	public boolean addDisciplina( Disciplina disciplina ) {
 		this.disciplinas.add(disciplina);
@@ -104,11 +115,6 @@ public class Aluno {
 	public Curso getCurso() {
 		return curso;
 	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-
 	public int getAnoPrazo() {
 		return anoPrazo;
 	}
