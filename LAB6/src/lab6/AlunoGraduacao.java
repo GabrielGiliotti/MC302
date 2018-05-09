@@ -2,8 +2,8 @@ package lab6;
 
 public class AlunoGraduacao extends Aluno{
 	
-	public AlunoGraduacao(String nome, String cpf, String vinculo, int curso) {
-		super(nome, cpf, vinculo, curso);
+	public AlunoGraduacao(String nome, String cpf) {
+		super(nome, cpf);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de graduacao
 	}
 	

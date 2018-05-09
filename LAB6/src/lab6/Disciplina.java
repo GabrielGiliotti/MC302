@@ -13,10 +13,11 @@ public class Disciplina {
 	//Alteração referente ao laboratorio 6:
 	private int creditos;
 	
-	public Disciplina(int id, String nome) {
+	public Disciplina(int id, String nome, int creditos) {
 		this.id = id;
 		this.nome = nome;
 		this.listaAlunos = new ArrayList <Aluno> ();
+		this.creditos = creditos;
 	}
 	
 	public String getNome() {

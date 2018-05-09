@@ -2,8 +2,8 @@ package lab6;
 
 public class AlunoMestrado extends AlunoPos{
 
-	public AlunoMestrado(String nome, String cpf, String vinculo, int curso) {
-		super(nome, cpf,vinculo, curso);
+	public AlunoMestrado(String nome, String cpf) {
+		super(nome, cpf);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de mestrado
 	}
 	//TODO: será alterado futuramente !

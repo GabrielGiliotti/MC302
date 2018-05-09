@@ -5,13 +5,17 @@ import java.util.ArrayList;
 public class RepositorioDeCursos {
 	
 	private ArrayList <Curso> listaDeCursos;
+	
+	public RepositorioDeCursos() {
+		this.listaDeCursos = new ArrayList <Curso> ();
+	}
 
 	public void removerCurso( Curso c ){
 		int i;
 		for( i=0; i < this.listaDeCursos.size(); i++ ) {
-			//if(  ) {
-				//listaDeCursos.remove(i);
-			//}
+			if( c.equals(this.listaDeCursos.get(i))) {
+				this.listaDeCursos.remove(i);
+			}
 		}
 	}
 	
