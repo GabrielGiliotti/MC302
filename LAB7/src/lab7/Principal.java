@@ -77,6 +77,11 @@ public class Principal {
         controladorDeMatricula.processaSolicitacoes(); //Apos solicitar a matricula de todos os 26 alunos em uma disciplina, ocorre o processamento
         //onde os 25 primeiros sao aceitos e o ultimo é rejeitado pelo excesso de alunos matriculados.	
         
-       
+      
+        
+        //Reproduzir os teste final do lab 4 sem usar instanceof
+        
+        
+        
 	}
 }

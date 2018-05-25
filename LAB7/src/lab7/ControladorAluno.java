@@ -11,7 +11,7 @@ public class ControladorAluno {
 	}
 	
 	//Metodo que recebe uma lista de Alunos e busca um Aluno pela sua matricula informada  
-		public Aluno buscaAluno( int matricula) { //Recebe o numero da matricula e a lista de alunos
+		public Aluno buscaAluno( int matricula ) { //Recebe o numero da matricula e a lista de alunos
 			for( Aluno a: this.listaDeAlunos ) { //laço que percorre a lista de alunos 
 				if( matricula == a.getMatricula()) { // se a matricula fornecida for igual a de um aluno
 					return a; // Retornamos o Aluno
@@ -21,7 +21,7 @@ public class ControladorAluno {
 		}
 		
 		//Metodo que recebe uma lista de Alunos e busca um Aluno pelo cpf informado  
-		public Aluno buscaAluno( String cpf) {//Recebe a string cpf e a lista de alunos
+		public Aluno buscaAluno( String cpf ) {//Recebe a string cpf e a lista de alunos
 			for( Aluno a : this.listaDeAlunos ) { //laço que percorre a lista de alunos 
 				if( cpf.equals(a.getCpf())) { // se o cpf fornecido for igual a de um aluno
 					return a; //Retornamos o Aluno
@@ -57,6 +57,16 @@ public class ControladorAluno {
 		}
 		
 			
-		//Implementar metodos para adicinar e remover
+		//metodos para adicinar e remover Aluno
+		public void adicionaAluno ( Aluno aluno ) {
+			this.listaDeAlunos.add(aluno);
+		}
 		
+		public void removeAluno ( Aluno aluno ) {
+			for(Aluno a: listaDeAlunos ) {
+				if( a.equals(aluno) ) {
+					listaDeAlunos.remove(a);
+				}
+			}
+		}	
 }

@@ -79,4 +79,10 @@ public class Disciplina {
 	public void setCreditos(int creditos) {
 		this.creditos = creditos;
 	}
+
+	public int getId() {
+		return id;
+	}
+	
+	
 }

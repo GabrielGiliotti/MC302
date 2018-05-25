@@ -20,4 +20,17 @@ public class AlunoDoutorado extends AlunoPos {
 		a = a + 5; //+5 pois o ano de entrada já eh um ano da integralização
 		anoPrazo = a;
 	}
+	
+	@Override
+	public void imprimeDados() {
+		String saida = "##### Aluno Doutorado #####\n";
+		
+		saida = saida + "Nome: "+ getNome() + "\nCpf: "+ getCpf(); 
+		saida = saida +  "\nAno de ingresso: " + getAnoIngresso() + "\nAno prazo: " + getAnoPrazo();
+		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso() ;
+		System.out.println(saida);
+		
+		System.out.println();
+	}
+	
 }

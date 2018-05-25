@@ -52,6 +52,4 @@ public class RepositorioDeCursos {
 	}
 	
 	
-	//Implementar metodos para adicinar e remover
-	
 }

@@ -5,21 +5,21 @@ package lab7;
 import mc302ef.GerenciadorAlunos;
 import java.util.ArrayList;
 
-public class Aluno {
+public class Aluno extends Pessoa{
 	
 	public static final int ALUNO_ATIVO = 1; //Variavel constante que indica se o aluno esta ativo 
 	public static final int ALUNO_INATIVO = 2; //Variavel constante que indica se o aluno esta inativo
-											//Não são utilizadas pois na classe aluno não é especificado seu uso. 
-	private String nome; 
-	private String cpf;
-	private int estado; //estado eh correspondente ao aluno ser ATIVO OU INATIVO. Estado não eh utilizado nesse lab. 
-	
+											
+	private int estado; 
 	private int anoIngresso;
 	protected int anoPrazo;
 	private Curso curso = null;
 	
+	private double coeficienteDeRendimento;
+	
 	//Criar lista de disciplinas em que o aluno está matriculado.
 	private ArrayList <Disciplina> disciplinas;
+	private ArrayList <Double> notas;
 	
 	private int matricula;
 	private static int idMatricula = 1; //Variavel utilizada para gerar numero de matriculas diferentes para cada aluno, de todas as disciplinas de grad ou pos.
@@ -27,13 +27,13 @@ public class Aluno {
 	
 	//Construtor que nao recebe ano de ingresso como parametro e o altera com o metodo do pacote mc302ef 
 	public Aluno(String nome, String cpf) {
-		this.nome = nome;
-		this.cpf = cpf;
+		super( nome,cpf);
 		this.anoIngresso = GerenciadorAlunos.getAnoIngressoRandom();
 		this.disciplinas = new ArrayList <Disciplina>();
 		this.matricula = idMatricula++;
 	}
 	//Função que imprime os dados de todos os alunos, sejam eles de Graduacao, mestrado ou doutorado
+	@Override
 	public void imprimeDados() {
 		String saida = "##### Aluno #####\n";
 		
@@ -44,7 +44,7 @@ public class Aluno {
 		
 		System.out.println();
 	}
-	//Mudança referente ao lab6
+	
 	//Metodo que contabiliza os creditos que o aluno esta matriculado
 	public int contabilizaCreditosJaMatriculados () {
 		int cred = 0;
@@ -75,27 +75,33 @@ public class Aluno {
 		return true;
 	}
 	
+	
+	
+	//AQUII 
+	public void adicionaNotas( double nota ) {
+		this.notas.add(nota);
+	}
+	
+	//metodo para calcular o coeficinete de rendimento de um aluno
+	public double calculaCoeficiente() {
+		//media aritmetica
+		
+		return 10.1;
+	}
+	
+	
+	
 	//Metodos getter e setters (Pode ser que alguns não estejam sendo utilizados)
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
 	public int getEstado() {
 		return estado;
 	}
 	
+	public double getCoeficienteDeRendimento() {
+		return coeficienteDeRendimento;
+	}
+	public void setCoeficienteDeRendimento(double coeficienteDeRendimento) {
+		this.coeficienteDeRendimento = coeficienteDeRendimento;
+	}
 	public ArrayList<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
