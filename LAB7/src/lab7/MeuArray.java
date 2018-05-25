@@ -7,9 +7,7 @@ import java.util.ArrayList;
 //Criada a classe MeuArray que extende ArrayList de Pessoa.
 
 public class MeuArray extends ArrayList <Pessoa> {
-	//Metodo de ordenação do objeto instanciado de MeuArray
-	//Pois MeuArray é uma extensão ArrayList.
-	//Esse metodo é baseado no InsertionSort;
+	//Metodo nao utilizado no laboratorio7
 	public void ordenaArrayList() {
 		int n = this.size();
 		for(int i = 1; i < n ; i++) {

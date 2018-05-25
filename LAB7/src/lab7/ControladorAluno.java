@@ -6,8 +6,8 @@ public class ControladorAluno {
 	
 	private ArrayList <Aluno> listaDeAlunos;
 	
-	public ControladorAluno(ArrayList<Aluno> listaDeAlunos) {
-		this.listaDeAlunos = listaDeAlunos;
+	public ControladorAluno() {
+		this.listaDeAlunos = new ArrayList <Aluno> ();
 	}
 	
 	//Metodo que recebe uma lista de Alunos e busca um Aluno pela sua matricula informada  

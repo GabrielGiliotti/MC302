@@ -7,8 +7,8 @@ public class RepositorioDeDisciplinas {
 	private ArrayList <Disciplina> repoDeDisciplinas;
 
 	//Construtor que inicia um arrayList repositorio de disciplinas
-	public RepositorioDeDisciplinas(ArrayList<Disciplina> repoDeDisciplinas) {
-		this.repoDeDisciplinas = repoDeDisciplinas;
+	public RepositorioDeDisciplinas() {
+		this.repoDeDisciplinas = new ArrayList <Disciplina> ();
 	}
 	//Metodo que busca uma disciplina pelo nome
 	public Disciplina buscaDisciplina( String nome ) {
@@ -29,7 +29,6 @@ public class RepositorioDeDisciplinas {
 		return null;		
 	}
 	//Implementar metodos para adicinar e remover Disciplina
-	
 	public void adicionarDisciplina( Disciplina dis ) {
 		this.repoDeDisciplinas.add(dis);
 	}

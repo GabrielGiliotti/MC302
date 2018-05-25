@@ -2,12 +2,18 @@
 
 package lab7;
 
-//Classe nao utilizada no lab 6
 public class AlunoDoutorado extends AlunoPos {
-	public AlunoDoutorado( String nome, String cpf) {
-		super(nome,cpf);
+	
+	//Sobrecarga de construtores para alunos de Doutorado
+	public AlunoDoutorado( String nome, String cpf, Professor p) {
+		super(nome,cpf, p);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de doutorado
 	}
+	public AlunoDoutorado( String nome, String cpf) {
+		this(nome,cpf, null);
+	}
+	
+	
 	public void setInglesComprovado( boolean comprova ) {
 		isInglesComprovado = comprova;
 	}
@@ -27,7 +33,7 @@ public class AlunoDoutorado extends AlunoPos {
 		
 		saida = saida + "Nome: "+ getNome() + "\nCpf: "+ getCpf(); 
 		saida = saida +  "\nAno de ingresso: " + getAnoIngresso() + "\nAno prazo: " + getAnoPrazo();
-		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso() ;
+		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso().getNome() ;
 		System.out.println(saida);
 		
 		System.out.println();

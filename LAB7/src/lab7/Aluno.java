@@ -6,11 +6,7 @@ import mc302ef.GerenciadorAlunos;
 import java.util.ArrayList;
 
 public class Aluno extends Pessoa{
-	
-	public static final int ALUNO_ATIVO = 1; //Variavel constante que indica se o aluno esta ativo 
-	public static final int ALUNO_INATIVO = 2; //Variavel constante que indica se o aluno esta inativo
 											
-	private int estado; 
 	private int anoIngresso;
 	protected int anoPrazo;
 	private Curso curso = null;
@@ -19,7 +15,7 @@ public class Aluno extends Pessoa{
 	
 	//Criar lista de disciplinas em que o aluno está matriculado.
 	private ArrayList <Disciplina> disciplinas;
-	private ArrayList <Double> notas;
+	protected ArrayList <Double> notas; //Armazena as notas do aluno nas disciplinas
 	
 	private int matricula;
 	private static int idMatricula = 1; //Variavel utilizada para gerar numero de matriculas diferentes para cada aluno, de todas as disciplinas de grad ou pos.
@@ -27,10 +23,11 @@ public class Aluno extends Pessoa{
 	
 	//Construtor que nao recebe ano de ingresso como parametro e o altera com o metodo do pacote mc302ef 
 	public Aluno(String nome, String cpf) {
-		super( nome,cpf);
+		super( nome,cpf );
 		this.anoIngresso = GerenciadorAlunos.getAnoIngressoRandom();
 		this.disciplinas = new ArrayList <Disciplina>();
 		this.matricula = idMatricula++;
+		this.notas = new ArrayList <Double> ();
 	}
 	//Função que imprime os dados de todos os alunos, sejam eles de Graduacao, mestrado ou doutorado
 	@Override
@@ -39,7 +36,7 @@ public class Aluno extends Pessoa{
 		
 		saida = saida + "Nome: "+ getNome() + "\nCpf: "+ getCpf(); 
 		saida = saida +  "\nAno de ingresso: " + getAnoIngresso() + "\nAno prazo: " + getAnoPrazo();
-		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso() ;
+		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso().getNome() ;
 		System.out.println(saida);
 		
 		System.out.println();
@@ -76,28 +73,32 @@ public class Aluno extends Pessoa{
 	}
 	
 	
-	
-	//AQUII 
+	//Adiciona as notas no ArrayList de notas 
 	public void adicionaNotas( double nota ) {
 		this.notas.add(nota);
 	}
 	
 	//metodo para calcular o coeficinete de rendimento de um aluno
 	public double calculaCoeficiente() {
-		//media aritmetica
-		
-		return 10.1;
+		int cont = 0; //Conta o numero de notas adicionadas
+		for( double n: notas) { //Perocrre o array list de notas
+			this.coeficienteDeRendimento += n; //soma a nota de uma posição no coeficiente
+			cont += 1; //conta +1 para nota adicionada
+		}
+		this.coeficienteDeRendimento = this.coeficienteDeRendimento / (float)cont; //Fazemos o total das notas dividido pelas disciplinas
+		return this.coeficienteDeRendimento; //Retornamos a media das notas nas disciplinas
 	}
-	
 	
 	
 	//Metodos getter e setters (Pode ser que alguns não estejam sendo utilizados)
-	public int getEstado() {
-		return estado;
-	}
-	
 	public double getCoeficienteDeRendimento() {
 		return coeficienteDeRendimento;
+	}
+	public ArrayList<Double> getNotas() {
+		return notas;
+	}
+	public void setNotas(ArrayList<Double> notas) {
+		this.notas = notas;
 	}
 	public void setCoeficienteDeRendimento(double coeficienteDeRendimento) {
 		this.coeficienteDeRendimento = coeficienteDeRendimento;

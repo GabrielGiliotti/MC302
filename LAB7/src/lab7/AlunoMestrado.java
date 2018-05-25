@@ -4,10 +4,18 @@ package lab7;
 
 //Classe nao utilizada no lab 6
 public class AlunoMestrado extends AlunoPos{
-	public AlunoMestrado(String nome, String cpf) {
-		super(nome, cpf);
+	
+	//Sobrecarga de construtores dos alunos de Mestrado
+	public AlunoMestrado( String nome, String cpf, Professor p) {
+		super(nome, cpf, p);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de mestrado
 	}
+	
+	public AlunoMestrado( String nome, String cpf) {
+		this(nome, cpf, null);	
+	}
+	
+	
 	//TODO: será alterado futuramente !
 	public void setInglesComprovado( boolean comprova ) {
 		isInglesComprovado = comprova;
@@ -28,7 +36,7 @@ public class AlunoMestrado extends AlunoPos{
 		
 		saida = saida + "Nome: "+ getNome() + "\nCpf: "+ getCpf(); 
 		saida = saida +  "\nAno de ingresso: " + getAnoIngresso() + "\nAno prazo: " + getAnoPrazo();
-		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso() ;
+		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso().getNome() ;
 		System.out.println(saida);
 		
 		System.out.println();

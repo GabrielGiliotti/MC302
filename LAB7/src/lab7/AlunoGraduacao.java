@@ -20,7 +20,7 @@ public class AlunoGraduacao extends Aluno{
 		
 		saida = saida + "Nome: "+ getNome() + "\nCpf: "+ getCpf(); 
 		saida = saida +  "\nAno de ingresso: " + getAnoIngresso() + "\nAno prazo: " + getAnoPrazo();
-		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso() ;
+		saida = saida + "\nMatricula: " + getMatricula() + "\nCurso: " + getCurso().getNome() ;
 		System.out.println(saida);
 		
 		System.out.println();

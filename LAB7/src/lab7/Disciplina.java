@@ -9,12 +9,11 @@ public class Disciplina {
 	private static final int NOME_MIN_LEN = 4;
 	public final int id;
 	private String nome;
+	
 	// TODO: Criar atributos para armazenar alunos
 	protected ArrayList <Aluno> listaAlunos;
-	
-	//Alteração referente ao laboratorio 6:
 	private int creditos;
-	//Unicas alteracoes para o lab 6 foram criacao do atributo creditos e mudar o construtor para receber creditos; 
+	
 	public Disciplina(int id, String nome, int creditos) {
 		this.id = id;
 		this.nome = nome;
