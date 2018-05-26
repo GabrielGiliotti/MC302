@@ -13,7 +13,7 @@ public class AlunoGraduacao extends Aluno{
 		a = a + 6; //+6 pois o ano de entrada já eh um ano da integralização
 		anoPrazo = a;
 	}
-	
+	//Sobrescrita de metodo para mostrar os dados dos alunos de graduacao
 	@Override
 	public void imprimeDados() {
 		String saida = "##### Aluno Graduacao #####\n";

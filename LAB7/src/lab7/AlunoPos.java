@@ -11,12 +11,12 @@ public class AlunoPos extends Aluno{
 		D(1), C(2), B(3), A(4);
 		private double nota;
 		
-		private NotasPos( double nota) {
+		private NotasPos( double nota ) {
 			this.nota = nota;
 		}
 		
 		public double getNota() {
-			return this.nota;
+			return nota;
 		}
 		
 		public static NotasPos converteNota( double nota ) {
@@ -32,12 +32,14 @@ public class AlunoPos extends Aluno{
 		}
 	}
 	
- 
+	
 	//Metodo que adiciona as notas ja convertidas para calculo do coeficiente da Pos;
 	@Override
 	public void adicionaNotas( double nota ) {
 		NotasPos notapos = NotasPos.converteNota(nota);
-		this.adicionaNotas(notapos.getNota());
+		//Descomente esse println para verificar que as notas estao sendo convertidas
+		//System.out.println("Nota da POS: " + notapos + " Nota Apos conversao: " +notapos.getNota());
+		this.notas.add(notapos.getNota());
 	}
 	
 	//Sobrecarga de construtores

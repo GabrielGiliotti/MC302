@@ -30,6 +30,7 @@ public class AlunoMestrado extends AlunoPos{
 		anoPrazo = a;
 	}
 	
+	//Sobrescrita de metodo para mostrar os dados de Alunos de mestrado
 	@Override
 	public void imprimeDados() {
 		String saida = "##### Aluno Mestrado #####\n";

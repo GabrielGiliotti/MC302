@@ -18,11 +18,11 @@ public class Principal {
 		Professor p3 = new Professor ("Esther", "147.936.285-22", 32500.00, 404, 358, 458) ;
 		
 		//Instanciando objetos dos tipos AlunoMestrado, AlunoDoutorado e AlunoGraduacao
-		AlunoPos a1 = new AlunoPos ("Gabriel", "123.456.789-00", p1);
-		AlunoPos a2 = new AlunoPos ("Ana Carolina", "987.654.321-40", p3); //Aluno com orientador
+		AlunoMestrado a1 = new AlunoMestrado ("Gabriel", "123.456.789-00", p1);
+		AlunoDoutorado a2 = new AlunoDoutorado ("Ana Carolina", "987.654.321-40", p3); //Aluno com orientador
 		AlunoGraduacao a3 = new AlunoGraduacao ("Eduardo", "456.213.798-13"); //Aluno sem orientador 
-		AlunoPos a4 = new AlunoPos ("Natalia", "654.132.879-05", p1); //Sobrecarga de Construtores
-		AlunoPos a5 = new AlunoPos ("Monica", "798.456.321-20", p2);
+		AlunoMestrado a4 = new AlunoMestrado ("Natalia", "654.132.879-05", p1); //Sobrecarga de Construtores
+		AlunoDoutorado a5 = new AlunoDoutorado ("Monica", "798.456.321-20", p2);
 		
 		//Adicionando os alunos instanciados no controlador
 		ControladorAluno controlador = new ControladorAluno();
@@ -73,7 +73,7 @@ public class Principal {
 		//Idem para RepositorioDeCursos e RepositorioDeDisciplinas, 
 		//porem nao foram feitos metodos para imprimir dados dos repositorios
 		
-		
+		//Testando o calculo do coefieciente de rendimento
 		a1.adicionaNotas(7.0); a1.adicionaNotas(8.5);
 		a3.adicionaNotas(5.2); a3.adicionaNotas(6.7);
 		a1.calculaCoeficiente();
