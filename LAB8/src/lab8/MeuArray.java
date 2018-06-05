@@ -4,22 +4,22 @@ package lab8;
  
 import java.util.ArrayList;
 
-//Criada a classe MeuArray que extende ArrayList de Pessoa.
+//Criada a classe MeuArray que extende ArrayList de Aluno (que é um tipo mais especifico de pessoa).
 
-public abstract class MeuArray extends ArrayList <Pessoa> {
-	//
+public abstract class MeuArray extends ArrayList <Aluno> {
+	//Metodo de ordenação do ArrayList
 	public void ordenaArrayList() {
 		int tam = this.size();
         for(int i=0; i<tam; i++) {
             for(int j=i+1; j<tam; j++) {
-                Pessoa anterior = this.compara(this.get(i), this.get(j));
+                Aluno anterior = this.compara(this.get(i), this.get(j));
                 if(anterior.equals(this.get(j))) {
-                    Pessoa aux = this.get(i);
+                    Aluno aux = this.get(i);
                     this.set(i, this.get(j));
                     this.set(j, aux);
                 }
             }
         }
 	}
-	public abstract Pessoa compara(Pessoa p1, Pessoa p2 );
+	public abstract Aluno compara( Aluno a1, Aluno a2 );
 }
