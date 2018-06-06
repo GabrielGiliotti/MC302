@@ -9,17 +9,17 @@ public abstract class AlunoPos extends Aluno{
 	
 	protected enum NotasPos{
 		D(1), C(2), B(3), A(4);
-		private double nota;
+		private float nota;
 		
-		private NotasPos( double nota ) {
+		private NotasPos( float nota ) {
 			this.nota = nota;
 		}
 		
-		public double getNota() {
+		public float getNota() {
 			return nota;
 		}
 		
-		public static NotasPos converteNota( double nota ) {
+		public static NotasPos converteNota( float nota ) {
 			if( nota >= 8.5 ) {
 				return A;
 			}else if ( nota >= 7 && nota < 8.5 ) {
@@ -34,11 +34,24 @@ public abstract class AlunoPos extends Aluno{
 	
 	//Metodo que adiciona as notas ja convertidas para calculo do coeficiente da Pos;
 	@Override
-	public void adicionaNotas( double nota ) {
+	public void adicionaNota( float nota ) {
 		NotasPos notapos = NotasPos.converteNota(nota);
-		//Descomente esse println para verificar que as notas estao sendo convertidas
-		//System.out.println("Nota da POS: " + notapos + " Nota Apos conversao: " +notapos.getNota());
 		this.notas.add(notapos.getNota());
+	}
+	@Override
+	public float mediaNotas() {
+		float soma = 0;
+        for(int i=0; i<this.notas.size(); i++)
+            soma += this.notas.get(i);
+        return soma / this.notas.size();
+	}
+	@Override
+	public boolean verificarAprovacao(float nota) {
+		NotasPos n = NotasPos.converteNota( nota );
+		if( n.getNota() >= NotasPos.C.getNota()  ) {
+			return true;
+		}
+		return false;
 	}
 	
 	//Sobrecarga de construtores
@@ -59,7 +72,5 @@ public abstract class AlunoPos extends Aluno{
 	public void setNomeOrientador(Professor nomeOrientador) {
 		this.orientador = nomeOrientador;
 	}
-	//Assinatura de metodo implementada nas subclasses de AlunoPos
-	public abstract void imprimeDados();
 	
 }

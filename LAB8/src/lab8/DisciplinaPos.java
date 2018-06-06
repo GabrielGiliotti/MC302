@@ -11,7 +11,7 @@ public class DisciplinaPos extends Disciplina {
 		if (listaAlunos.size() == MAX_ALUNOS) {
 			return false;
 		}else {
-			listaAlunos.add(aluno);
+			listaAlunos.add(new AvaliaAluno(aluno));
 			aluno.addDisciplina(this); 
 			return true;
 		}
@@ -22,10 +22,13 @@ public class DisciplinaPos extends Disciplina {
 		if(listaAlunos.size() == 0 ) {
 			return false;
 		}else{
-			listaAlunos.remove(aluno);
+			for( AvaliaAluno a : listaAlunos) {
+				if( a.getAluno().equals(aluno)) {
+					listaAlunos.remove(a);
+				}
+			}
 			aluno.removeDisciplina(this); 
 			return true;
 		}
 	}
-	
 }

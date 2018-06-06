@@ -25,4 +25,23 @@ public class AlunoGraduacao extends Aluno{
 		
 		System.out.println();
 	}
+	
+	@Override
+	public void adicionaNota(float nota) {
+		this.notas.add(nota);
+	}
+	@Override
+	public float mediaNotas() {
+		float soma = 0;
+        for(float nota : this.notas)
+            soma += nota;
+        return soma / this.notas.size();
+	}
+	@Override
+	public boolean verificarAprovacao(float nota) {
+		if( nota >= 5.0f) {
+			return true;
+		}
+		return false;
+	}
 }

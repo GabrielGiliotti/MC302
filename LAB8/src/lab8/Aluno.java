@@ -15,7 +15,7 @@ public abstract class Aluno extends Pessoa{
 	
 	//Criar lista de disciplinas em que o aluno está matriculado.
 	private ArrayList <Disciplina> disciplinas;
-	protected ArrayList <Double> notas; //Armazena as notas do aluno nas disciplinas
+	protected ArrayList <Float> notas; //Armazena as notas do aluno nas disciplinas
 	
 	private int matricula;
 	private static int idMatricula = 1; //Variavel utilizada para gerar numero de matriculas diferentes para cada aluno, de todas as disciplinas de grad ou pos.
@@ -27,11 +27,12 @@ public abstract class Aluno extends Pessoa{
 		this.anoIngresso = GerenciadorAlunos.getAnoIngressoRandom();
 		this.disciplinas = new ArrayList <Disciplina>();
 		this.matricula = idMatricula++;
-		this.notas = new ArrayList <Double> ();
+		this.notas = new ArrayList <Float> ();
 	}
-	//Função que imprime os dados de todos os alunos, sejam eles de Graduacao, mestrado ou doutorado
-	@Override
-	public abstract void imprimeDados();
+
+	public abstract void adicionaNota(float nota);//2,1
+	public abstract float mediaNotas();
+	public abstract boolean verificarAprovacao(float nota);//2,3
 	
 	//Metodo que contabiliza os creditos que o aluno esta matriculado
 	public int contabilizaCreditosJaMatriculados () {
@@ -65,7 +66,7 @@ public abstract class Aluno extends Pessoa{
 	
 	
 	//Adiciona as notas no ArrayList de notas 
-	public void adicionaNotas( double nota ) {
+	public void adicionaNotas( float nota ) {
 		this.notas.add(nota);
 	}
 	
@@ -85,10 +86,10 @@ public abstract class Aluno extends Pessoa{
 	public double getCoeficienteDeRendimento() {
 		return coeficienteDeRendimento;
 	}
-	public ArrayList<Double> getNotas() {
+	public ArrayList<Float> getNotas() {
 		return notas;
 	}
-	public void setNotas(ArrayList<Double> notas) {
+	public void setNotas(ArrayList<Float> notas) {
 		this.notas = notas;
 	}
 	public void setCoeficienteDeRendimento(double coeficienteDeRendimento) {
