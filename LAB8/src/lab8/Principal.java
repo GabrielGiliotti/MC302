@@ -57,7 +57,7 @@ public class Principal {
         g5.setCurso(cienciaDaComputacao);	m5.setCurso(cienciaDaComputacao);	d5.setCurso(cienciaDaComputacao);
 
 
-        //Testando Disciplinas para um unico aluno e adicionando no RepositorioDeDisciplinas
+        //Testando Disciplinas e alunos e adicionando as disciplinas no RepositorioDeDisciplinas
         RepositorioDeDisciplinas repoDis = new RepositorioDeDisciplinas ();
         Disciplina f128 = new DisciplinaPos(128, "Fisica I", 4);
         Disciplina mc302 = new DisciplinaGrad (302, "Programacao Orientada Objetos", 6);
@@ -83,16 +83,21 @@ public class Principal {
         controladorDeMatricula.processaSolicitacoes();
 
         System.out.println();
-
+        
+        System.out.println("Alunos ordenados por ordem Alfabetica !\n");
         for(Pessoa p : alunosDaUniversidade1) {
             p.imprimeDados(); //Imprimindo os dados ordenados lexicograficamente
         }
+        System.out.println("Alunos ordenados por ano de Ingresso !\n");
         for(Pessoa p : alunosDaUniversidade2) {
             p.imprimeDados(); //Imprimindo os dados ordenados por Ano de Ingresso
         }
-        //Imprime dados da Disciplina com as nostas geradas
+        
+        //Imprime dados da Disciplina com as notas geradas
         f128.geraNota();
         mc302.geraNota();
+        
+        //Imprimindo os dados 
         mc302.imprimeDados();
         System.out.println();
         f128.imprimeDados();
