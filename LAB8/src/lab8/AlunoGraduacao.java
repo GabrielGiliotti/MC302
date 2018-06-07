@@ -2,12 +2,16 @@
 
 package lab8;
 
-//Classe nao utlizada no lab 6
 public class AlunoGraduacao extends Aluno{
+	
+	//Construtor
 	public AlunoGraduacao(String nome, String cpf) {
 		super(nome, cpf);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de graduacao
 	}
+	
+	//Metodo que calcula o ano maximo de integralizacao do aluno de Graduacao
+	@Override
 	public void calculaAnoMaxIntegralizacao(){
 		int a = getAnoIngresso();
 		a = a + 6; //+6 pois o ano de entrada já eh um ano da integralização
@@ -26,6 +30,7 @@ public class AlunoGraduacao extends Aluno{
 		System.out.println();
 	}
 	
+	//Sobrescrita de metodos abstratos de Aluno
 	@Override
 	public void adicionaNota(float nota) {
 		this.notas.add(nota);

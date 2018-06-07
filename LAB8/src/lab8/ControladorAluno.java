@@ -6,8 +6,10 @@ import java.util.ArrayList;
 
 public class ControladorAluno {
 	
+	//Controlador de Aluno guarda um ArrayList de Alunos
 	private ArrayList <Aluno> listaDeAlunos;
 	
+	//Construtor
 	public ControladorAluno() {
 		this.listaDeAlunos = new ArrayList <Aluno> ();
 	}
@@ -57,13 +59,11 @@ public class ControladorAluno {
 			}
 			return null; // Caso nenhum aluno com o nome e/ou disciplina dado seja encontrado, retornamos null como objeto
 		}
-		
 			
 		//metodos para adicinar e remover Aluno
 		public void adicionaAluno ( Aluno aluno ) {
 			this.listaDeAlunos.add(aluno);
 		}
-		
 		public void removeAluno ( Aluno aluno ) {
 			for(Aluno a: listaDeAlunos ) {
 				if( a.equals(aluno) ) {

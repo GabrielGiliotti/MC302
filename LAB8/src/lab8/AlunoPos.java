@@ -3,10 +3,13 @@
 package lab8;
 
 public abstract class AlunoPos extends Aluno{
-	protected boolean isInglesComprovado; //Atributos especificados para a classe AlunoPos que serão modificados nas classes AlunoMestrado e AlunoDoutorado
+	
+	//Atributos especificados para a classe AlunoPos que serão modificados nas classes AlunoMestrado e AlunoDoutorado
+	protected boolean isInglesComprovado; 
 	protected boolean isExameQualificacaoAprovado;
 	private Professor orientador;
 	
+	//Classe interna enum, utilizada para converter as notas dos alunos de Pos-Graduacao
 	protected enum NotasPos{
 		D(1), C(2), B(3), A(4);
 		private float nota;
@@ -14,11 +17,10 @@ public abstract class AlunoPos extends Aluno{
 		private NotasPos( float nota ) {
 			this.nota = nota;
 		}
-		
 		public float getNota() {
 			return nota;
 		}
-		
+		//Metodo que converte a nota float em NotaPos
 		public static NotasPos converteNota( float nota ) {
 			if( nota >= 8.5 ) {
 				return A;
@@ -32,7 +34,7 @@ public abstract class AlunoPos extends Aluno{
 		}
 	}
 	
-	//Metodo que adiciona as notas ja convertidas para calculo do coeficiente da Pos;
+	//Sobrescrita de metodos abstratos de Aluno
 	@Override
 	public void adicionaNota( float nota ) {
 		NotasPos notapos = NotasPos.converteNota(nota);
@@ -55,14 +57,13 @@ public abstract class AlunoPos extends Aluno{
 	}
 	
 	//Sobrecarga de construtores
-	public AlunoPos(String nome, String cpf) {
-		this(nome, cpf, null);
-	}	
-	
 	public AlunoPos(String nome, String cpf , Professor orientador) {
 		super(nome, cpf);
 		this.orientador = orientador;
 	}
+	public AlunoPos(String nome, String cpf) {
+		this(nome, cpf, null);
+	}	
 	
 	//Metodos getters e setters
 	public Professor getNomeOrientador() {
@@ -72,5 +73,4 @@ public abstract class AlunoPos extends Aluno{
 	public void setNomeOrientador(Professor nomeOrientador) {
 		this.orientador = nomeOrientador;
 	}
-	
 }

@@ -1,7 +1,10 @@
+/*Nome: Gabriel Volpato Giliotti RA:197569*/
+
 package lab8;
 
 public class DisciplinaPos extends Disciplina {
 
+	//Construtor
 	public DisciplinaPos(int id, String nome, int creditos) {
 		super(id, nome, creditos);
 	}

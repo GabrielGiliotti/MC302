@@ -28,7 +28,6 @@ public class Professor extends Funcionario{
 		this (nome, cpf, salario, materia1, materia2, materia3, null);
 	}
 	
-	
 	//Metodo que retorna as materias que o professor leciona
 	public int[] getMaterias() {
 		return materiasQueProfessorLeciona;
@@ -67,14 +66,11 @@ public class Professor extends Funcionario{
 		}
 	}
 	
-	
 	public ArrayList<Aluno> getOrientandosDoProfessor() {
 		return orientandosDoProfessor;
 	}
 
 	public void setOrientandosDoProfessor(ArrayList<Aluno> orientandosDoProfessor) {
 		this.orientandosDoProfessor = orientandosDoProfessor;
-	}
-	
-		
+	}		
 }

@@ -10,7 +10,6 @@ public abstract class Aluno extends Pessoa{
 	private int anoIngresso;
 	protected int anoPrazo;
 	private Curso curso = null;
-	
 	private double coeficienteDeRendimento;
 	
 	//Criar lista de disciplinas em que o aluno está matriculado.
@@ -30,9 +29,11 @@ public abstract class Aluno extends Pessoa{
 		this.notas = new ArrayList <Float> ();
 	}
 
-	public abstract void adicionaNota(float nota);//2,1
+	//Metodos abstratos que devem ser implementados em subclasses de Aluno/AlunoPos que tambem eh abstrata
+	public abstract void adicionaNota(float nota);
 	public abstract float mediaNotas();
-	public abstract boolean verificarAprovacao(float nota);//2,3
+	public abstract boolean verificarAprovacao(float nota);
+	public abstract void calculaAnoMaxIntegralizacao();
 	
 	//Metodo que contabiliza os creditos que o aluno esta matriculado
 	public int contabilizaCreditosJaMatriculados () {
@@ -43,6 +44,7 @@ public abstract class Aluno extends Pessoa{
 		}
 		return cred;
 	}
+	
 	//metodo que atribui um curso a um aluno,
 	public void setCurso(Curso curso) {
 		if( this.curso == null ) {	
@@ -53,18 +55,19 @@ public abstract class Aluno extends Pessoa{
 			System.out.println("Aluno " + getNome() + " já matriculado no curso " + this.curso.getNome() + " . Matricula em outro curso NEGADA !");
 		}
 	}
+	
 	//Metodo que adiciona disciplina ao ArrayList disciplinas de um aluno estanciado
 	public boolean addDisciplina( Disciplina disciplina ) {
 		this.disciplinas.add(disciplina);
 		return true; //retorna true por ser boolean
 	}
+	
 	//Metodo que remove disciplina do ArrayList disciplinas de um aluno estanciado
 	public boolean removeDisciplina( Disciplina disciplina ) {
 		this.disciplinas.remove(disciplina);
 		return true;
 	}
-	
-	
+
 	//Adiciona as notas no ArrayList de notas 
 	public void adicionaNotas( float nota ) {
 		this.notas.add(nota);
@@ -80,7 +83,6 @@ public abstract class Aluno extends Pessoa{
 		this.coeficienteDeRendimento = this.coeficienteDeRendimento / (float)cont; //Fazemos o total das notas dividido pelas disciplinas
 		return this.coeficienteDeRendimento; //Retornamos a media das notas nas disciplinas
 	}
-	
 	
 	//Metodos getters e setters 
 	public double getCoeficienteDeRendimento() {
@@ -98,28 +100,22 @@ public abstract class Aluno extends Pessoa{
 	public ArrayList<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
-	
 	public int getMatricula() {
 		return matricula;
 	}
-
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
-
 	public int getAnoIngresso() {
 		return anoIngresso;
 	}
-	
 	public Curso getCurso() {
 		return curso;
 	}
 	public int getAnoPrazo() {
 		return anoPrazo;
 	}
-
 	public void setAnoPrazo(int anoPrazo) {
 		this.anoPrazo = anoPrazo;
-	}
-		
+	}	
 }

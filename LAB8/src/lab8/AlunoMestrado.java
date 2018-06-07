@@ -2,7 +2,6 @@
 
 package lab8;
 
-//Classe nao utilizada no lab 6
 public class AlunoMestrado extends AlunoPos{
 	
 	//Sobrecarga de construtores dos alunos de Mestrado
@@ -10,20 +9,20 @@ public class AlunoMestrado extends AlunoPos{
 		super(nome, cpf, p);
 		this.calculaAnoMaxIntegralizacao(); //Metodo utilizado para calcular o ano de integralização do aluno de mestrado
 	}
-	
 	public AlunoMestrado( String nome, String cpf) {
 		this(nome, cpf, null);	
 	}
 	
-	
-	//TODO: será alterado futuramente !
+	//Metodos para futura implementacao
 	public void setInglesComprovado( boolean comprova ) {
 		isInglesComprovado = comprova;
 	}
-	//TODO: será alterado futuramente !
 	public void setExameQualificado( boolean qualificaEQM ) {
 		isExameQualificacaoAprovado = qualificaEQM;
 	}
+	
+	//Metodo que calcula o ano maximo de integralizacao do aluno de Mestrado
+	@Override
 	public void calculaAnoMaxIntegralizacao(){
 		int a = getAnoIngresso();
 		a = a + 2; //+2 pois o ano de entrada já eh um ano da integralização
@@ -41,7 +40,5 @@ public class AlunoMestrado extends AlunoPos{
 		System.out.println(saida);
 		
 		System.out.println();
-	}
-	
-	
+	}	
 }

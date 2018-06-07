@@ -13,20 +13,23 @@ public class AlunoDoutorado extends AlunoPos {
 		this(nome,cpf, null);
 	}
 	
-	
+	//Metodos para futura implementacao
 	public void setInglesComprovado( boolean comprova ) {
 		isInglesComprovado = comprova;
 	}
-	//TODO: será alterado futuramente !
 	public void setExameQualificado( boolean qualificaEQM ) {
 		isExameQualificacaoAprovado = qualificaEQM;
 	}
+	
+	//Metodo que calcula ano de Integralizacao do aluno de Doutorado
+	@Override
 	public void calculaAnoMaxIntegralizacao(){
 		int a = getAnoIngresso();
 		a = a + 5; //+5 pois o ano de entrada já eh um ano da integralização
 		anoPrazo = a;
 	}
 	
+	//Sobrescrita do metodo imprimeDados
 	@Override
 	public void imprimeDados() {
 		String saida = "##### Aluno Doutorado #####\n";
@@ -37,6 +40,5 @@ public class AlunoDoutorado extends AlunoPos {
 		System.out.println(saida);
 		
 		System.out.println();
-	}
-	
+	}	
 }
