@@ -1,0 +1,178 @@
+Introdução
+
+Ordem: Using Jena with Eclipse -> An Introduction to RDF and the Jena RDF API -> (Talvez) Jena Ontology API ->
+
+RDF: Resource Description Framework - Framework de recurso de descrição
+
+	- É um padrão para descrever recursos. Um recurso é algo que podemos identificar, uma pessoa, uma ferramenta, um animal, um objeto. 
+	(Pra mim, tudo aquilo que pode me oferecer alguma utilidade em determinado contexto é um recurso: a própria informação é um recurso)
+
+	* Os exemplos dados no tutorial são sobre pessoas.
+
+URI: Uniform Resource Identifier - Identificador Uniforme de Recursos
+
+	- Quando for citada a palavra recurso (Resource), devemos pensar na URI  -->  http://.../JohnSmith
+	(mostrado nas elipses dos esquemas)
+
+	- Uma propriedade (property) é um atributo de um recurso. Por exemplo o titulo DC. é uma propriedade, assim como o tipo de arquivo RDF.
+	(Pra mim, property é uma caracteristica, pode ser seu titulo, sua descrição, seu tipo, seu comportamento, etc)
+	
+	* o nome de uma property também é uma URI, mas por serem longas e incomodas, os diagramas mostram essas URIs no formato qname XML.
+
+	* prefixo do namespace:localname. 
+
+		- Um namespace é um simbolo/elemento que organizam objetos (TAGS são elementos e possiveis namespaces)
+		  No exemplo, http é um prefixo de namespace.
+
+		- Localname é o objeto que a URI carrega, no caso //...//JohnSmith é o localname.
+
+		- Não há exigencia de que a URI de uma propriedade de um recurso seja resolvida quando buscada no
+		browser.
+
+	- cada property tem um valor (mostrado nos retangulos dos exemplos)
+
+	
+	* Jena é uma API Java que pode ser utilizada para criar e manipular grafos RDF (Como os mostrados nos esquemas). Esses grafos são
+	chamados de modelos.
+
+
+Statements (Declarações): um arco em um modelo RDF.
+	
+	- Cada statement afirma um fato sobre um recurso.
+
+	* Um statement se subdivide em 3 partes:
+
+	     _________________________________________________________________________________________________	
+	    | - subject ( sujeito ) : é o recurso (resource) do qual se tem um arco  Ex: http://.../JohnSmith |
+	    |_________________________________________________________________________________________________|		
+												
+				|	
+				|   - predicate ( predicado ) : é a propriedade (property) que rotula o arco  Ex: vcard:Family 	
+				V
+	     ________________________________________________________________________________________
+	    | - object ( objeto ) : é o recurso (resource) ou literal apontado pelo arco  Ex: Smith  |
+	    |________________________________________________________________________________________|
+
+
+	 - Statements é conhecido tambem como Tripla (triple)
+
+
+
+Writing RDF
+
+	- Jena tem metodos (Java) para ler e escrever RDF como XML. Isso pode ser usado para salvar um modelo RDF em um arquivo e depois
+	ler esse arquivo novamente.
+
+	
+	* <rdf:RDF> indica que o que esta dentro dessa tag(elemento) é um modelo RDF </rdf:RDF>
+
+
+	* <rdf: RDF
+	    xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+  	    xmlns:vcard='http://www.w3.org/2001/vcard-rdf/3.0#'	>  
+
+	   - (É a definição dos namespaces utilizados no documento. Lembrar:        --->        prefixo do namespace:localname 
+	     Quando estava em aligmentAPI, os arquivos .RDF/.owl tinham 4 ou mais desses) 
+
+		- Nesse exemplo, o prefixo do namespace é xmlns;
+		- O namespace (que é um elemento, que são as TAGS), são rdf e vcard;
+		- e à esses elementos são atribuidos as URIS .
+
+
+
+	* <rdf: Description> Essa tag/elemento descreve o recurso que estamos trabalhando </rdf: Description>
+
+	      <rdf:Description rdf:about='http://somewhere/JohnSmith'>
+	      <rdf:Description rdf:nodeID="A0">
+
+	      - Com about: um nó com informação, isto é, o nó tem um recurso armazenado
+	      - Sem about: temos um blank node, isto é, um nó vazio que pode servir de caminho para nós com recursos.
+
+
+
+	* <vcard:FN> Descreve uma property do recurso (property esta definido acima no texto) </vcard:FN>
+	  
+	      - O nome da property é "FN" nesse exemplo (o qual esta localizado na posição namespace).
+	      - RDF converte essa tag/elemento em uma URI concatenando a URI de referencia do namespace com o prefixo "FN", que é 
+	        parte do localname do nome.
+
+		Ex:   -->  http://www.w3.org/2001/vcard-rdf/3.0#FN     URI reference para a property do recurso.
+
+	      - O valor dessa property , no exemplo , é John Smith   (FN = FullName)
+
+
+
+	(Esse ultimo não sei se entendi direito, mas voltar e mudar a descrição caso necessario)
+	* <vcard:N> É o recurso (no exemplo). </vcard:N>
+
+	      - O "about" descreve o endereço/URI do recurso geral, isto é, do esquema de grafos completo.
+
+	      - Já esse <vcard:N> descreve o recurso em si, ele é o nó (node) com as informções dentro, de Given, de Family. Assim:
+
+
+			* Ele inicialmente descreve <vcard:N rdf:nodeID="A0"/> , que diz: o recurso esta/é o node com ID = A0.
+
+			* e Depois descreve o que existe nesse recurso:
+
+				<rdf:Description rdf:nodeID="A0">
+    					<vcard:Given>John</vcard:Given>
+   					<vcard:Family>Smith</vcard:Family>
+  				</rdf:Description> 
+
+	       - Conclusao: essa tag (e talvez as outras também) não são particulares para um recurso, elas podem ser hora para recurso,
+		 hora para properties.
+
+	 Obs: o modelo criado no exemplo nao é bem representado, pois o writer atribui uma URI ao blank node, o que o torna um node por
+	      conter uma informação. 
+
+	      A recomendação é utilizar o Writer "N-TRIPLES", para arquivos grandes que apresentam blank nodes.
+
+
+
+Reading RDF	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
